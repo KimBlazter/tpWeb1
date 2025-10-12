@@ -21,6 +21,3 @@ canvas.height = 600;
 var drawing = new Drawing();
 var pencil = new Pencil(ctx, drawing, canvas);
 drawing.paint(ctx, canvas);
-
-// var rec = new Rectangle({ x: 50, y: 50 }, 300, 300, '#0F0F0F', 5);
-// rec.paint(ctx);
