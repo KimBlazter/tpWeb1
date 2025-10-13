@@ -133,6 +133,8 @@ function Pencil(ctx, drawing, canvas) {
         updateShapeList(this, drawing);
         drawing.paint(ctx);
         this.currentShape = null;
+
+        this.redoStack = [];
     };
 
     this.removeShape = (index) => {
@@ -140,6 +142,31 @@ function Pencil(ctx, drawing, canvas) {
         updateShapeList(this, drawing);
         drawing.paint(ctx);
     };
+
+    // === Réinitialisation des contrôles visuels au chargement ===
+
+    // Empêche le navigateur de restaurer l’état des inputs
+    document.querySelectorAll('form').forEach((form) => {
+        form.setAttribute('autocomplete', 'off');
+    });
+
+    // Force le bouton "Rectangle" à être sélectionné
+    const rectangleInput = document.getElementById('butRect');
+    const lineInput = document.getElementById('butLine');
+    const circleInput = document.getElementById('butCircle');
+
+    rectangleInput.checked = true;
+    lineInput.checked = false;
+    circleInput.checked = false;
+
+    // Réinitialise les valeurs par défaut
+    colorPicker.value = '#000000';
+    thicknessSpinner.value = 5;
+
+    // Réinitialise aussi les valeurs du contrôleur
+    this.currEditingMode = editingMode.rect;
+    this.currLineWidth = 5;
+    this.currColour = '#000000';
 
     // Implémentez ici les 3 fonctions onInteractionStart, onInteractionUpdate et onInteractionEnd
 }
