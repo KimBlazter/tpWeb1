@@ -75,3 +75,7 @@ L'application suit une architecture MVC :
 - **Modèle** : Gère les données des formes et leur état
 - **Vue** : S'occupe du rendu graphique sur le canvas et de la liste des formes
 - **Contrôleur** : Gère les interactions utilisateur et met à jour le modèle et la vue en conséquence
+
+## Déploiement sur CDN
+
+- L'application est actuellement déployée sur le GitHub pages à cette adresse : https://kimblazter.github.io/tpWeb1/canvas.html
